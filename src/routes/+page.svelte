@@ -1,11 +1,6 @@
 <script>
     import { db } from "$lib/db";
     import { liveQuery } from "dexie";
-    let naam = '';
-    let opnamedatum = '';
-  
-    let status = '';
-
     const addPatient = async () => {
       const id = await db.fhic.add({
         naam: naam,
@@ -21,6 +16,32 @@
     let patienten = liveQuery(() => db.fhic.toArray());
 
 </script>
+
+<div>
+  <h1>Werkbriefje FHIC</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Naam</th>
+        <th>Data</th>
+        <th>Medicatie</th>
+        <th>To-do</th>
+      </tr>
+    </thead>
+    <tbody>
+        {#if $patienten}
+          {#each $patienten as patient}
+          <tr>
+            <td>{patient.naam}</td>
+            <td>{patient.opnamedatum} (opname) <br /> (voorlopig ontslag) <br /> (eerstvolgend ZAG)</td>
+          </tr>
+          {/each}
+        {/if}
+    </tbody>
+  </table>
+
+</div>
+
 <style>
   div {
     width: 80%;
@@ -45,28 +66,3 @@
     font-size: 24px;
   }
 </style>
-<div>
-  <h1>Werkbriefje FHIC</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Naam</th>
-        <th>Data</th>
-        <th>Medicatie</th>
-        <th>To-do</th>
-      </tr>
-    </thead>
-    <tbody>
-        {#if $patienten}
-          {#each $patienten as patient}
-          <tr>
-            <td>{patient.naam}</td>
-            <td>{patient.opnamedatum} (opname) <br /> (voorlopig ontslag) <br /> (eerstvolgend ZAG)</td>
-            <!-- <td><a on:click={deletePatient(patient.id)}>verwijder</a></td> -->
-          </tr>
-          {/each}
-        {/if}
-    </tbody>
-  </table>
-
-</div>
