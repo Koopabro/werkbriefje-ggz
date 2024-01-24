@@ -1,19 +1,26 @@
 {
-  "name": "werkbriefje-ggz",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "ag-grid-react": "^30.0.6",
-    "eslint": "8.45.0",
-    "eslint-config-next": "13.4.12",
-    "next": "13.4.12",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  }
+	"name": "werkbriefje-ggz",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write ."
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@types/eslint": "8.56.0",
+		"eslint": "^8.56.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-svelte": "^2.35.1",
+		"prettier": "^3.1.1",
+		"prettier-plugin-svelte": "^3.1.2",
+		"svelte": "^4.2.7",
+		"vite": "^5.0.3"
+	},
+	"type": "module"
 }
