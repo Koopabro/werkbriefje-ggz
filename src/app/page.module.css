@@ -1,0 +1,7 @@
+.tabel {
+  border-collapse: collapse;
+  border-spacing: 20px;
+  width: 60%;
+  table-layout: auto;
+  text-align: left;
+}
